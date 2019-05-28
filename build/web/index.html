@@ -1,0 +1,261 @@
+<html >
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>LingOntoViz</title>
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+
+  <script type="text/javascript" src="vis.js"></script>
+  <style>
+body
+{
+
+}
+    #mygraph {
+      width: 100%;
+      height: 1000px;
+
+
+
+
+
+    }
+  
+  </style>
+
+    </head>
+
+    <body onLoad="draw()">
+ 
+        <script src="graphe.js"></script>
+        <div id="container2">
+                   <header>
+                <div id="header-top">
+                    <a href="index.jsp" id="logo"></a>
+                    <section id="pub-header">
+            <div class="banner-header {zoneID: 5}" id="zone5"></div>
+            <div class="drapeau">
+
+           <a href=""> <img src="flag_fr.png"></a>
+           <a href="indexAng.jsp"> <img src="flag_uk.png"></a>
+           <a href=""> <img src="flag_ar.png"></a>
+
+        </div>
+</section>
+                </div>
+
+                <div id="header-bottom">
+
+
+                    <nav id="menu">
+    <ul>
+        <li><a href="javascript:void(0);" id="home-link">File </a>
+                    <ul id="game-links" style=" margin-left:0px">
+                        <li><a href="">Open</a></li>
+                        <li><a href="">Edit</a></li>
+                        <li><a href="">Save</a></li>
+                        <li><a href="">Save as</a></li>
+                        <li><a href="">Exit</a></li>
+                    </ul>
+        </li>
+
+        <li><a href="javascript:void(1);" id="home-link2">View</a>
+        <ul id="game-links2" style=" margin-left:90px">
+                <li><a href="">Specialized view</a></li>
+               
+       </ul>
+        </li>
+
+        <li><a href="">Composition scenario</a></li>
+
+      
+
+
+      
+
+ 
+  </ul>
+
+</nav>
+                </div>
+            </header>
+            <div style="width: 100%">
+       <div style=" height:auto; width:60%;">
+
+<form action="arbre.jsp" method="get" id="contactForm" >
+      <p class="double">
+          <br>
+     <label>Nœud: </label>
+     <input type="text" name="recherche"/>
+      </p>
+</form>
+
+</div>
+
+
+<div  id="total" style=" height:auto; width: 40%; float: right; line-height: 22px; margin-top: 10px;">
+</div>
+        
+            <div id="main" role="main" style="  background-color:#fdf3f1; width: 100%; height: 1200px; font-size: 50px " >
+                  
+ 
+
+ 
+        <script src="graphe.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    var DIR = 'img/soft-scraps-icons/';
+
+    var nodes = null;
+    var edges = null;
+    var graph = null;
+
+    function draw() {
+
+      // create people
+    nodes = [
+
+        {id: 0,  label: 'Language',   image: 'cercle.png', shape: 'image'},
+        {id: 1,  label: 'Arabic',   image: 'cercle.png', shape: 'image'},
+        {id: 3,  label: 'English',   image: 'cercle.png', shape: 'image'},
+        {id: 4,  label: 'French',   image: 'cercle.png', shape: 'image'},
+        {id: 5,  label: 'Treatment_levels',   image: 'cercle.png', shape: 'image'},
+
+        {id: 6,  label: 'Lexical_level',   image: 'cercle.png', shape: 'image'},
+        {id: 7,  label: 'Morphological_level',   image: 'cercle.png', shape: 'image'},
+        {id: 8,  label: 'Pragmatic_level',   image: 'cercle.png', shape: 'image'},
+        {id: 9,  label: 'Semantic_level',   image: 'cercle.png', shape: 'image'},
+        
+    
+        {id: 10,  label: 'Syntatic_level',   image: 'cercle.png', shape: 'image'},
+        {id: 11,  label: 'Automatic_diacritization',   image: 'cercle.png', shape: 'image'},
+        {id: 12,  label: 'Basic',   image: 'cercle.png', shape: 'image'},
+        {id: 13,  label: 'Lemmatization',   image: 'cercle.png', shape: 'image'},
+        {id: 14,  label: 'Morphological_analysis',   image: 'cercle.png', shape: 'image'},
+        {id: 15,  label: 'Morphological_disambiguation',   image: 'cercle.png', shape: 'image'},
+        {id: 16,  label: 'Morphological_features',   image: 'cercle.png', shape: 'image'},
+        {id: 17,  label: 'Morphological_generation',   image: 'cercle.png', shape: 'image'},
+       {id: 18,  label: 'Morphological_preprocessing',   image: 'cercle.png', shape: 'image'},
+       {id: 19,  label: 'Name_entity_extraction',   image: 'cercle.png', shape: 'image'},
+       {id: 20,  label: 'Ortographic_Normalization',   image: 'cercle.png', shape: 'image'},
+       
+       {id: 21,  label: 'Ortographic_transliteration',   image: 'cercle.png', shape: 'image'},
+       {id: 22,  label: 'Stemming',   image: 'cercle.png', shape: 'image'},
+       {id: 23,  label: 'Parsing',   image: 'cercle.png', shape: 'image'},
+       {id: 24,  label: 'Lexeme',   image: 'cercle.png', shape: 'image'},
+       {id: 25,  label: 'Sentence',   image: 'cercle.png', shape: 'image'},
+       {id: 26,  label: 'Text',   image: 'cercle.png', shape: 'image'},
+        {id: 27,  label: 'Tokens',   image: 'cercle.png', shape: 'image'},
+         {id: 28,  label: 'Word',   image: 'cercle.png', shape: 'image'},
+         {id: 29,  label: 'PartOfSpeech_tagging',   image: 'cercle.png', shape: 'image'},
+         {id: 30,  label: 'gender',   image: 'cercle.png', shape: 'image'},
+         {id: 31,  label: 'Lemme',   image: 'cercle.png', shape: 'image'},
+         {id: 32,  label: 'Number',   image: 'cercle.png', shape: 'image'},
+         
+         {id: 33,  label: 'PartOfSpeech',   image: 'cercle.png', shape: 'image'},
+         {id: 34,  label: 'Person',   image: 'cercle.png', shape: 'image'},
+         {id: 35,  label: 'Root',   image: 'cercle.png', shape: 'image'},
+         {id: 36,  label: 'Stem',   image: 'cercle.png', shape: 'image'},
+         {id: 37,  label: 'Voice',   image: 'cercle.png', shape: 'image'},
+         {id: 38,  label: 'Adjective',   image: 'cercle.png', shape: 'image'},
+         
+         {id: 39,  label: 'Adverb',   image: 'cercle.png', shape: 'image'},
+         {id: 40,  label: 'Noun',   image: 'cercle.png', shape: 'image'},
+         {id: 41,  label: 'Pronoun',   image: 'cercle.png', shape: 'image'},
+         {id: 42,  label: 'Verb',   image: 'cercle.png', shape: 'image'},
+         
+         {id: 43,  label: 'Lexica_normalization',   image: 'cercle.png', shape: 'image'},
+         {id: 44,  label: 'Sentence_Boundary_Detection',   image: 'cercle.png', shape: 'image'},
+         {id: 45,  label: 'Tokenezation',   image: 'cercle.png', shape: 'image'},
+         {id: 46,  label: 'Simple_tokenizer',   image: 'cercle.png', shape: 'image'},
+         {id: 47,  label: 'Word_segmenter',   image: 'cercle.png', shape: 'image'},
+         
+         {id: 48,  label: 'Diacritic_removal',   image: 'cercle.png', shape: 'image'},
+         {id: 49,  label: 'Encoding_cleanup',   image: 'cercle.png', shape: 'image'},
+                  
+         {id: 50,  label: 'Lettre_normalization',   image: 'cercle.png', shape: 'image'},
+         {id: 51,  label: 'Stop_word_removal',   image: 'cercle.png', shape: 'image'},
+                  
+         {id: 52,  label: 'Tatweel_removal',   image: 'cercle.png', shape: 'image'},
+         {id: 53,  label: 'Light_stemmer',   image: 'cercle.png', shape: 'image'},
+                  
+         {id: 54,  label: 'Root_extraction',   image: 'cercle.png', shape: 'image'}
+     
+
+      ];
+
+      // create a graph
+      var container = document.getElementById('mygraph');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {};
+      graph = new vis.Graph(container, data, options);
+	graph.on('select', onSelect);
+          function onSelect (properties) {
+	//alert(properties.nodes);
+        var idnode = properties.nodes.toString();
+          var text;
+        
+
+     if(idnode=='13')
+              {
+        
+
+          text='<strong>Lemmatization is the mapping of a word form to its corresponding lemma, the canonical representative of its lexeme.</strong>' ;
+
+    
+       
+               
+              document.getElementById("total").innerHTML = text;
+                
+
+	}
+
+	graph.on('select', onSelect);
+         
+          }
+
+	}
+
+
+  </script>
+ 
+
+
+
+<div id="mygraph" style=" height:auto; width: 100%;"></div>
+
+                </div>
+                    </div>
+       
+
+        <div id="footer-wrapper">
+            <footer>
+                <nav id="footer-nav">
+    <ul>
+
+        
+        <li><a href="">Qui sommes-nous ?</a></li>
+        <li><a href="">Aide</a></li>
+
+            </ul>
+</nav>
+                <div id="copyrightDIV">
+<p id="copyright"><span style="margin-left: 300px;">All rights reserved</span></p>
+                </div>
+            </footer>
+        </div>
+
+
+            
+ <script src="scripts9556.js"></script>
+<script src="js.js"></script>
+<script src="js2.js"></script>
+<script src="js3.js"></script>
+</body>
+</html>

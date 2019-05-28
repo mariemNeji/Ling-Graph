@@ -1,0 +1,284 @@
+<html >
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>LingOntoViz</title>
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+
+  <script type="text/javascript" src="vis.js"></script>
+  <style>
+body
+{
+
+}
+    #mygraph {
+      width: 100%;
+      height: 100%
+
+
+
+
+
+    }
+  
+  </style>
+
+    </head>
+
+    <body onLoad="draw()">
+ 
+        <script src="graphe.js"></script>
+        <div id="container2">
+                   <header>
+                <div id="header-top">
+                    <a href="index.jsp" id="logo"></a>
+                    <section id="pub-header">
+            <div class="banner-header {zoneID: 5}" id="zone5"></div>
+            <div class="drapeau">
+
+           <a href=""> <img src="flag_fr.png"></a>
+           <a href="indexAng.jsp"> <img src="flag_uk.png"></a>
+           <a href=""> <img src="flag_ar.png"></a>
+
+        </div>
+</section>
+                </div>
+
+                <div id="header-bottom">
+
+
+                    <nav id="menu">
+    <ul>
+        <li><a href="javascript:void(0);" id="home-link">File </a>
+                    <ul id="game-links" style=" margin-left:0px">
+                        <li><a href="">Open</a></li>
+                        <li><a href="">Edit</a></li>
+                        <li><a href="">Save</a></li>
+                        <li><a href="">Save as</a></li>
+                        <li><a href="">Exit</a></li>
+                    </ul>
+        </li>
+
+        <li><a href="javascript:void(1);" id="home-link2">View</a>
+        <ul id="game-links2" style=" margin-left:90px">
+                <li><a href="">Specialized view</a></li>
+               
+       </ul>
+        </li>
+
+        <li><a href="">Composition scenario</a></li>
+
+      
+
+
+      
+
+ 
+  </ul>
+
+</nav>
+                </div>
+            </header>
+            <div style="width: 100%">
+       <div style=" width:80%; float: left;">
+
+<form action="arbre.jsp" method="get" id="contactForm" >
+    <div style="width: 100%; padding-left: 20px;">
+        <div style="width: 25%; float: left;">
+            <br>
+            <input type="checkbox" id="Language" name="Language">
+            <label><strong>Language</strong></label><br><br>
+            <div style=" padding-left: 10px;">
+            <input type="checkbox" id="Arabic" name="Arabic"><label> Arabic</label> 
+            <input type="checkbox" id="English" name="English"><label> English</label> 
+            <input type="checkbox" id="French" name="French"><label> French</label> 
+            </div>
+            
+    </div>
+        <div style="width: 25%; float: right">
+                        <br>
+            <input type="checkbox" id="TreatmentLevel" name="TreatmentLevel">
+            <label><strong>Treatment Level</strong></label><br><br>
+               <div style=" padding-left: 10px;">
+            <input type="checkbox" id="Lexical" name="Lexical"><label> Lexical</label> 
+            <input type="checkbox" id="Morphological" name="Morphological"><label> Morphological</label> 
+            <input type="checkbox" id="Semantic" name="Semantic"><label> Semantic</label> <br>
+            <input type="checkbox" id="Syntactic" name="Syntactic"><label> Syntactic</label> 
+            <input type="checkbox" id="Pragmatic" name="Pragmatic"><label> Pragmatic</label> 
+               
+            </div>
+    </div>
+        <div style="width: 25%; float: right">
+            <br>
+            <input type="checkbox" id="AbstractionLevel" name="AbstractionLevel">
+            <label><strong>Abstraction Level</strong></label><br><br>
+                        <div style=" padding-left: 10px;">
+            <input type="checkbox" id="ProcessingConcepts" name="ProcessingConcepts"><label> Processing Concepts</label> 
+            <input type="checkbox" id="DataConcepts" name="DataConcepts"><label> Data Concepts</label>
+          
+            </div>
+    </div>
+        <div style="width: 25%; float: right">
+                        <br>
+            <input type="checkbox" id="GranularityLevel" name="GranularityLevel">
+            <label><strong>Granularity Level</strong></label><br><br>
+                        <div style=" padding-left: 10px;">
+            <input type="checkbox" id="SubClass" name="SubClass"><label> SubClass</label> 
+            <input type="checkbox" id="SuperClass" name="SuperClass"><label> SuperClass</label> 
+            <input type="checkbox" id="DomainClass" name="DomainClass"><label> Domain Class</label><br> 
+            <input type="checkbox" id="RangClass" name="RangClass"><label> Rang Class</label><br> 
+            <center> <input type="submit" value="View "></center>
+       
+            </div>
+    </div>
+        
+            
+        
+    </div>
+   
+</form>
+
+</div>
+                <div  id="total" style="width: 20%; float: right; line-height: 22px; padding-top: 20px;"></div>
+            </div>
+
+
+
+        
+            <div id="main" role="main" style=" background-color:#fdf3f1; width: 100%; height: 700px; font-size: 50px " >
+                  
+ 
+
+ 
+        <script src="graphe.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    var DIR = 'img/soft-scraps-icons/';
+
+    var nodes = null;
+    var edges = null;
+    var graph = null;
+
+    function draw() {
+
+      // create people
+    nodes = [
+
+    
+        {id: 1,  label: 'Morphological_analysis',   image: 'cercle.png', shape: 'image'},
+        {id: 3,  label: 'Name_entity_extraction',   image: 'cercle.png', shape: 'image'},
+        {id: 4,  label: 'Segmentation',   image: 'cercle.png', shape: 'image'},
+        {id: 5,  label: 'Sentence_segmentation',   image: 'cercle.png', shape: 'image'},
+
+        {id: 6,  label: 'Tokenization',   image: 'cercle.png', shape: 'image'},
+        {id: 7,  label: 'Simple_tokenization',   image: 'cercle.png', shape: 'image'},
+        {id: 8,  label: 'Word_segmentation',   image: 'cercle.png', shape: 'image'},
+        {id: 9,  label: 'Stemming',   image: 'cercle.png', shape: 'image'},
+        
+    
+        {id: 10,  label: 'Light_stemming',   image: 'cercle.png', shape: 'image'},
+        {id: 11,  label: 'Root_extraction',   image: 'cercle.png', shape: 'image'},
+        {id: 12,  label: 'Lemmatization',   image: 'cercle.png', shape: 'image'},
+        {id: 13,  label: 'Morphological_disambiguiation',   image: 'cercle.png', shape: 'image'},
+        {id: 14,  label: 'PartOfSpeech_tagging',   image: 'cercle.png', shape: 'image'},
+        {id: 15,  label: 'Orthographic_normalization',   image: 'cercle.png', shape: 'image'},
+        {id: 16,  label: 'Letter_normalization',   image: 'cercle.png', shape: 'image'},
+        {id: 17,  label: 'Encoding_cleanup',   image: 'cercle.png', shape: 'image'},
+       {id: 18,  label: 'Diacritic_removal',   image: 'cercle.png', shape: 'image'},
+       {id: 19,  label: 'Stop_word_removal',   image: 'cercle.png', shape: 'image'}
+     
+
+      ];
+        // create connections
+      var color = 'black';
+      edges = [
+       {from: 6,   to: 7 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+
+       {from: 6,   to: 8 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+
+{from: 9,   to: 10 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+{from: 9,   to: 11 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+{from: 13,   to: 14 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+
+{from: 15,   to: 16 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+{from: 15,   to: 17 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+{from: 15,   to: 18 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+{from: 15,   to: 19 ,  value: 2,   label:'  SubClass  ' ,   color: color},
+
+      ];
+
+      // create a graph
+      var container = document.getElementById('mygraph');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {};
+      graph = new vis.Graph(container, data, options);
+	graph.on('select', onSelect);
+          function onSelect (properties) {
+	//alert(properties.nodes);
+        var idnode = properties.nodes.toString();
+          var text;
+        
+
+     if(idnode=='12')
+              {
+        
+
+          text='<strong>Lemmatization is the mapping of a word form to its corresponding lemma, the canonical representative of its lexeme.</strong>' ;
+
+    
+       
+               
+              document.getElementById("total").innerHTML = text;
+                
+
+	}
+
+	graph.on('select', onSelect);
+         
+          }
+
+	}
+
+
+  </script>
+ 
+
+
+
+<div id="mygraph" style=" height:900px; width: 100%;"></div>
+
+                </div>
+                    </div>
+       
+
+        <div id="footer-wrapper">
+            <footer>
+                <nav id="footer-nav">
+    <ul>
+
+        
+        <li><a href="">Qui sommes-nous ?</a></li>
+        <li><a href="">Aide</a></li>
+
+            </ul>
+</nav>
+                <div id="copyrightDIV">
+<p id="copyright"><span style="margin-left: 300px;">All rights reserved</span></p>
+                </div>
+            </footer>
+        </div>
+
+
+            
+ <script src="scripts9556.js"></script>
+<script src="js.js"></script>
+<script src="js2.js"></script>
+<script src="js3.js"></script>
+</body>
+</html>
